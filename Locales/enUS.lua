@@ -9,3 +9,4 @@ L["Error_NoTradeChannel"] = "SGT advertiser: No 'Trade' Channel found on /2. Ple
 L["Enabled"] = "Enabled";
 L["ButtonSize"] = "Button size";
 L["delaySec"] = "Delay in seconds";
+L["Error_version_core"] = "SGT Core version is below the required version, please update SGT Core.\nSGT Advertiser will not load until you have updated!"

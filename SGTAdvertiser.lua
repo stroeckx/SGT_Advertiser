@@ -4,7 +4,7 @@ SGTAdvertiser.L = LibStub("AceLocale-3.0"):GetLocale("SGTAdvertiser");
 --Variables start
 SGTAdvertiser.majorVersion = 1;
 SGTAdvertiser.subVersion = 0;
-SGTAdvertiser.minorVersion = 0;
+SGTAdvertiser.minorVersion = 1;
 SGTAdvertiser.macroButton = nil;
 local priceFrame = nil;
 local buttonInitialised = false;
@@ -13,6 +13,11 @@ local isTradeChatEnabled = false;
 --Variables end
 
 function SGTAdvertiser:OnInitialize()
+    if(SGTCore.DoVersionCheck == nil or SGTCore:DoVersionCheck(1,0,4, SGTCore) == false) then
+        message(SGTAdvertiser.L["Error_version_core"]);
+        return;
+    end
+
     SGTAdvertiser.db = LibStub("AceDB-3.0"):New("SGTAdvertiserDB", {
         profile = 
         {

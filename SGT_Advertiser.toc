@@ -2,7 +2,7 @@
 ## Title: SGT Advertiser
 ## Notes: Advertiser
 ## Author: Stroeckx
-## Version: v1.0
+## Version: v1.0.1
 ## Dependencies: SGT_Core
 ## SavedVariables: SGTAdvertiserDB
 ## OptionalDeps: Ace3
