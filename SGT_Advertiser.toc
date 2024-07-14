@@ -1,8 +1,8 @@
-## Interface: 100105
+## Interface: 100207
 ## Title: SGT Advertiser
 ## Notes: Advertiser
 ## Author: Stroeckx
-## Version: v1.0.4
+## Version: v1.0.5
 ## Dependencies: SGT_Core
 ## SavedVariables: SGTAdvertiserDB
 ## OptionalDeps: Ace3
