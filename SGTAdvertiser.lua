@@ -4,7 +4,7 @@ SGTAdvertiser.L = LibStub("AceLocale-3.0"):GetLocale("SGTAdvertiser");
 --Variables start
 SGTAdvertiser.majorVersion = 1;
 SGTAdvertiser.subVersion = 0;
-SGTAdvertiser.minorVersion = 7;
+SGTAdvertiser.minorVersion = 8;
 SGTAdvertiser.macroButton = nil;
 SGTAdvertiser.searchMacroButton = nil;
 local priceFrame = nil;
@@ -99,12 +99,13 @@ end
 
 function SGTAdvertiser:OnAdvertiserFrameCreated()
     local advertiserFrame = SGTCore:GetTabFrame("SGTAdvertiser");
-    local scrollframe = advertiserFrame.scrollframe.scrollchild;
-    local advertiserDescription = SGTCore:AddAnchoredFontString("SGTAdvertiserDescriptionText", scrollframe, advertiserFrame, 5, -5, SGTAdvertiser.L["SGTAdvertiserDescription"], advertiserFrame);
-    local enabledCheckbox = SGTCore:AddOptionCheckbox("SGTAdvertiserEnabledCheckbox", scrollframe, advertiserDescription, SGTAdvertiser.db.profile.settings.enabled, SGTAdvertiser.L["Enabled"], SGTAdvertiser.OnEnabledChecked)
-    local sizeSlider = SGTCore:AddOptionSlider("SGTAdvertiserSizeSlider", scrollframe, enabledCheckbox, 10, 100, 1, SGTAdvertiser.db.profile.settings.buttonSize, SGTAdvertiser.L["ButtonSize"], SGTAdvertiser.OnSizeSliderChanged)
-    local delaySlider = SGTCore:AddOptionSlider("SGTAdvertiserdelaySlider", scrollframe, sizeSlider, 120, 900, 10, SGTAdvertiser.db.profile.settings.timeBetweenPosts, SGTAdvertiser.L["delaySec"], SGTAdvertiser.OnDelaySliderChanged)
-    SGTAdvertiser.searchMacroButton = SGTCore:AddButton("SGTAdvertiserScanButton", scrollframe, delaySlider, 125, 20, tostring(SGTAdvertiser.L["SearchMacro"]), SGTAdvertiser.OnSearchMacroButtonClicked)
+    local scrollchild = advertiserFrame.scrollframe.scrollchild;
+	local anchor = SGTCore:AddInitialAnchor("Anchor", scrollchild, advertiserFrame);
+    local advertiserDescription = SGTCore:AddAnchoredFontString("SGTAdvertiserDescriptionText", scrollchild, anchor, 5, -5, SGTAdvertiser.L["SGTAdvertiserDescription"]);
+    local enabledCheckbox = SGTCore:AddOptionCheckbox("SGTAdvertiserEnabledCheckbox", scrollchild, advertiserDescription, SGTAdvertiser.db.profile.settings.enabled, SGTAdvertiser.L["Enabled"], SGTAdvertiser.OnEnabledChecked)
+    local sizeSlider = SGTCore:AddOptionSlider("SGTAdvertiserSizeSlider", scrollchild, enabledCheckbox, 10, 100, 1, SGTAdvertiser.db.profile.settings.buttonSize, SGTAdvertiser.L["ButtonSize"], SGTAdvertiser.OnSizeSliderChanged)
+    local delaySlider = SGTCore:AddOptionSlider("SGTAdvertiserdelaySlider", scrollchild, sizeSlider, 120, 900, 10, SGTAdvertiser.db.profile.settings.timeBetweenPosts, SGTAdvertiser.L["delaySec"], SGTAdvertiser.OnDelaySliderChanged)
+    SGTAdvertiser.searchMacroButton = SGTCore:AddButton("SGTAdvertiserScanButton", scrollchild, delaySlider, 125, 20, tostring(SGTAdvertiser.L["SearchMacro"]), SGTAdvertiser.OnSearchMacroButtonClicked)
     --if(buttonInitialised == true) then
     --    SGTAdvertiser.searchMacroButton:Hide();
     --end
