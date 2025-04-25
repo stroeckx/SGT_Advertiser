@@ -4,7 +4,7 @@ SGTAdvertiser.L = LibStub("AceLocale-3.0"):GetLocale("SGTAdvertiser");
 --Variables start
 SGTAdvertiser.majorVersion = 1;
 SGTAdvertiser.subVersion = 0;
-SGTAdvertiser.minorVersion = 12;
+SGTAdvertiser.minorVersion = 13;
 SGTAdvertiser.macroButton = nil;
 SGTAdvertiser.searchMacroButton = nil;
 local priceFrame = nil;
